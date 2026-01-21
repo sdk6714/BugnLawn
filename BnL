@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bug N Lawn</title>
+  <meta name="description" content="Bug N Lawn - Exterior Property Solutions in Florida. Contact us for information." />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;     /* near-black */
+      --muted:#6b7280;    /* gray */
+      --line:#e5e7eb;     /* light gray */
+      --card:#f9fafb;     /* very light */
+      --radius:16px;
+      --max:920px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 48px;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0 18px;
+      border-bottom:1px solid var(--line);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+    }
+    .mark{
+      font-weight:800;
+      letter-spacing:0.2px;
+      font-size:20px;
+    }
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      padding:6px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      white-space:nowrap;
+    }
+    .hero{
+      padding:30px 0 12px;
+    }
+    h1{
+      margin:0 0 6px;
+      font-size:46px;
+      line-height:1.1;
+      letter-spacing:-0.6px;
+    }
+    .sub{
+      margin:0;
+      font-size:18px;
+      color:var(--muted);
+      max-width:60ch;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--card);
+      padding:18px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:-0.2px;
+    }
+    .card p{
+      margin:0 0 10px;
+      color:var(--text);
+    }
+    .muted{color:var(--muted)}
+    .contact{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:#fff;
+    }
+    .label{
+      min-width:70px;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:2px;
+    }
+    .value{
+      font-size:14px;
+      word-break:break-word;
+    }
+    footer{
+      margin-top:26px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+    }
+    /* Print-friendly (specimen) */
+    @media print{
+      header .pill{display:none}
+      a{text-decoration:none}
+      .wrap{padding:18px}
+      .card{background:#fff}
+    }
+    @media (max-width: 820px){
+      h1{font-size:38px}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="/" aria-label="Bug N Lawn home">
+        <div class="mark">Bug N Lawn</div>
+      </a>
+      <div class="pill">Florida</div>
+    </header>
+
+    <section class="hero" aria-label="Intro">
+      <h1>Bug N Lawn</h1>
+      <p class="sub">Exterior Property Solutions</p>
+    </section>
+
+    <section class="grid" aria-label="Information">
+      <div class="card">
+        <h2>Information</h2>
+        <p>
+          Bug N Lawn provides residential and commercial exterior property solutions in Florida.
+        </p>
+        <p class="muted">
+          Contact us for more information.
+        </p>
+      </div>
+
+      <div class="card" aria-label="Contact">
+        <h2>Contact</h2>
+
+        <div class="contact">
+          <div class="row">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:+19415551234">(941) 555-1234</a></div>
+          </div>
+
+          <div class="row">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:info@bugnlawn.com">info@bugnlawn.com</a></div>
+          </div>
+
+          <div class="row">
+            <div class="label">Service Area</div>
+            <div class="value">Florida</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="yr"></span> Bug N Lawn</div>
+      <div class="muted">This page is public-facing contact information for Bug N Lawn.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Keeps the footer year current (optional)
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
