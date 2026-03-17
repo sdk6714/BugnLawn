@@ -52,6 +52,36 @@ body{font-family:'Lato',sans-serif;color:var(--text);background:var(--white);ove
   font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
   padding:3px 10px;border-radius:50px;
 }
+.top-bar-phone-block{
+  display:flex;align-items:center;gap:10px;
+}
+.top-bar-phone-link{
+  display:flex;align-items:center;gap:7px;
+  color:#fff;text-decoration:none;
+  font-weight:700;font-size:.9rem;letter-spacing:.3px;
+  transition:opacity .2s;
+}
+.top-bar-phone-link:hover{opacity:.85}
+.phone-svg{
+  color:var(--red);
+  background:#fff;
+  border-radius:50%;
+  padding:2px;
+  flex-shrink:0;
+  box-shadow:0 0 0 2px rgba(255,255,255,.3);
+}
+.top-bar-get-started{
+  display:inline-block;
+  background:var(--red);color:#fff;
+  font-family:'Montserrat',sans-serif;font-weight:800;font-size:.72rem;
+  text-transform:uppercase;letter-spacing:1px;
+  padding:5px 14px;border-radius:50px;
+  text-decoration:none;
+  border:1.5px solid rgba(255,255,255,.3);
+  transition:background .2s,transform .15s;
+  white-space:nowrap;
+}
+.top-bar-get-started:hover{background:var(--red-dark);transform:translateY(-1px)}
 
 /* ===== HEADER ===== */
 header{
@@ -725,11 +755,16 @@ h1{animation:fadeUp .6s .1s ease both}
 <div class="top-bar">
   <div class="top-bar-inner">
     <div class="top-bar-left">
-      <div class="top-bar-item">📞 <a href="tel:+19412181234">(941) 218-1234</a></div>
       <div class="top-bar-item">📍 Southwest Florida</div>
       <div class="top-bar-item">🕐 Mon–Fri 7am–6pm · Sat 8am–2pm</div>
     </div>
-    <span class="top-bar-badge">🌿 Bundle &amp; Save — Free Quote Today</span>
+    <div class="top-bar-phone-block">
+      <a href="tel:+19412181234" class="top-bar-phone-link">
+        <svg class="phone-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.58.57 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.58 1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
+        (941) 218-1234
+      </a>
+      <a href="tel:+19412181234" class="top-bar-get-started">Get Started</a>
+    </div>
   </div>
 </div>
 
@@ -1223,8 +1258,18 @@ h1{animation:fadeUp .6s .1s ease both}
 
 <script>
 /* Mobile nav */
-document.getElementById('menuBtn').addEventListener('click',function(){
-  document.getElementById('main-nav').classList.toggle('open');
+const menuBtn = document.getElementById('menuBtn');
+const mainNav = document.getElementById('main-nav');
+
+menuBtn.addEventListener('click', function(){
+  mainNav.classList.toggle('open');
+});
+
+// Close menu when any nav link is clicked
+mainNav.querySelectorAll('a').forEach(function(link){
+  link.addEventListener('click', function(){
+    mainNav.classList.remove('open');
+  });
 });
 
 /* FAQ */
