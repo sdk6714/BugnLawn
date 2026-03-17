@@ -782,31 +782,47 @@ h1{animation:fadeUp .6s .1s ease both}
         <p>No pressure · We reply fast · Local team</p>
       </div>
       <div class="quote-card-body">
-        <div class="form-row">
-          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Jane Smith"></div>
-          <div class="form-group"><label>Phone</label><input type="tel" placeholder="(941) 555-0123"></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label>ZIP Code</label><input type="text" placeholder="34201"></div>
-          <div class="form-group">
-            <label>I Need Help With</label>
-            <select>
-              <option value="">Select one</option>
-              <option>Pest Control (Home)</option>
-              <option>Lawn Insect Control</option>
-              <option>Lawn Fertilizing &amp; Weed Control</option>
-              <option>Ornamentals / Shrubs</option>
-              <option>Bundle: Pest + Lawn</option>
-              <option>Not Sure</option>
-            </select>
+        <form id="quoteForm" action="https://formspree.io/f/mzzvwjyk" method="POST" onsubmit="handleFormSubmit(event)">
+          <!-- Email subject -->
+          <input type="hidden" name="_subject" value="New Lead - Bug N Lawn">
+          <!-- Honeypot spam trap -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-name">Full Name</label>
+              <input id="f-name" name="name" type="text" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-group">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" placeholder="(941) 555-0123" required>
+            </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label>What are you seeing? (optional)</label>
-          <textarea placeholder="Fire ants in yard, roaches inside, brown patches in lawn…"></textarea>
-        </div>
-        <button class="btn-submit" onclick="submitForm(this)">→ Request My Free Quote</button>
-        <p class="form-note">By submitting you agree to be contacted. No spam, ever.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="f-zip">ZIP Code</label>
+              <input id="f-zip" name="zip" type="text" placeholder="34201" required>
+            </div>
+            <div class="form-group">
+              <label for="f-service">I Need Help With</label>
+              <select id="f-service" name="service" required>
+                <option value="">Select one</option>
+                <option>Pest Control (Home)</option>
+                <option>Lawn Insect Control</option>
+                <option>Lawn Fertilizing &amp; Weed Control</option>
+                <option>Ornamentals / Shrubs</option>
+                <option>Bundle: Pest + Lawn</option>
+                <option>Not Sure</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="f-details">What are you seeing? (optional)</label>
+            <textarea id="f-details" name="details" placeholder="Fire ants in yard, roaches inside, brown patches in lawn…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">→ Request My Free Quote</button>
+          <p class="form-note">By submitting you agree to be contacted. No spam, ever.</p>
+        </form>
       </div>
     </div>
   </div>
@@ -1220,11 +1236,40 @@ function toggleFaq(btn){
 }
 document.querySelectorAll('.faq-item.open .faq-a').forEach(a=>a.style.maxHeight='320px');
 
-/* Form */
-function submitForm(btn){
-  btn.textContent='✓ Sent! We\'ll reach out shortly.';
-  btn.style.background='var(--green)';
-  btn.disabled=true;
+/* Form — Formspree AJAX, stays on page */
+async function handleFormSubmit(e){
+  e.preventDefault();
+  const form = document.getElementById('quoteForm');
+  const btn  = document.getElementById('submitBtn');
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  btn.style.background = 'var(--muted)';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      btn.textContent = '\u2713 SENT! WE\'LL REACH OUT SHORTLY.';
+      btn.style.background = 'var(--green)';
+      btn.style.letterSpacing = '.5px';
+      form.querySelectorAll('input:not([type=hidden]), select, textarea').forEach(el => {
+        el.value = '';
+        el.disabled = true;
+      });
+    } else {
+      btn.textContent = '\u26a0 Something went wrong — please call us.';
+      btn.style.background = 'var(--orange)';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = '\u26a0 Network error — please try again.';
+    btn.style.background = 'var(--orange)';
+    btn.disabled = false;
+  }
 }
 
 /* Scroll reveal */
