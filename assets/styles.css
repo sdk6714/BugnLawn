@@ -259,6 +259,8 @@ a {
   border-radius: var(--radius);
   background: var(--red);
   color: #fff;
+  font-family: inherit;
+  font-size: inherit;
   text-decoration: none;
   font-weight: 800;
   line-height: 1;
@@ -913,6 +915,14 @@ details p {
 .form-status,
 .form-success-message {
   grid-column: 1 / -1;
+}
+
+.btn-submit,
+.btn-submit-call {
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 .btn-submit-call {
