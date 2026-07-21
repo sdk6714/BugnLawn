@@ -3,10 +3,30 @@ const nav = document.querySelector("[data-nav]");
 const toggle = document.querySelector("[data-nav-toggle]");
 
 if (toggle && nav) {
+  const closeNav = () => {
+    toggle.setAttribute("aria-expanded", "false");
+    nav.classList.remove("is-open");
+  };
+
   toggle.addEventListener("click", () => {
     const open = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!open));
-    nav.classList.toggle("is-open", !open);
+    if (open) {
+      closeNav();
+    } else {
+      toggle.setAttribute("aria-expanded", "true");
+      nav.classList.add("is-open");
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Element) || !nav.classList.contains("is-open")) return;
+    if (target.closest("[data-nav]") || target.closest("[data-nav-toggle]")) return;
+    closeNav();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeNav();
   });
 }
 
