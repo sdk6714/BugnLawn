@@ -1123,7 +1123,7 @@ select option {
   color: #fff;
   background:
     linear-gradient(90deg, rgba(0, 63, 22, 0.96), rgba(0, 101, 31, 0.72)),
-    url("hero-pest-control-swfl.webp") center 58% / cover no-repeat;
+    url("hero-pest-control-swfl-wide.webp") center 58% / cover no-repeat;
 }
 
 .page-hero p:not(.eyebrow) {
