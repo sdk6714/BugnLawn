@@ -1448,12 +1448,12 @@ select option {
     align-items: flex-start;
     background:
       linear-gradient(90deg, rgba(7, 20, 12, 0.96), rgba(7, 20, 12, 0.68)),
-      url("hero-pest-control-swfl.webp") 64% 32% / cover no-repeat;
+      url("hero-pest-control-swfl.webp") 64% 24% / cover no-repeat;
   }
 
   .quote-hero .quote-grid {
-    padding-top: 44px;
-    padding-bottom: 20px;
+    padding-top: 22px;
+    padding-bottom: 0;
   }
 
   h1 {
