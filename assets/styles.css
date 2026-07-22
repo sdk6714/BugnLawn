@@ -334,7 +334,7 @@ a {
   color: #fff;
   background:
     linear-gradient(90deg, rgba(7, 20, 12, 0.94) 0%, rgba(7, 20, 12, 0.78) 35%, rgba(7, 20, 12, 0.18) 70%),
-    url("hero-pest-control-swfl.webp") center / cover no-repeat;
+    url("hero-pest-control-swfl.webp") center 58% / cover no-repeat;
 }
 
 .quote-hero {
@@ -848,7 +848,7 @@ details p {
   padding: 86px 0;
   background:
     linear-gradient(90deg, rgba(4, 16, 9, 0.9) 0%, rgba(4, 16, 9, 0.72) 44%, rgba(4, 16, 9, 0.38) 100%),
-    url("hero-pest-control-swfl.webp") center right / cover no-repeat;
+    url("hero-pest-control-swfl.webp") center 58% / cover no-repeat;
   color: #fff;
 }
 
@@ -1119,7 +1119,7 @@ select option {
   color: #fff;
   background:
     linear-gradient(90deg, rgba(0, 63, 22, 0.96), rgba(0, 101, 31, 0.72)),
-    url("hero-pest-control-swfl.webp") center / cover no-repeat;
+    url("hero-pest-control-swfl.webp") center 58% / cover no-repeat;
 }
 
 .page-hero p:not(.eyebrow) {
@@ -1128,7 +1128,7 @@ select option {
 }
 
 .local-hero {
-  background-position: center right;
+  background-position: 0% 0%, 50% 58%;
 }
 
 .area-card-grid {
