@@ -95,7 +95,7 @@ a {
 
 @media (min-width: 981px) {
   .site-header .container {
-    width: min(1360px, calc(100% - 32px));
+    width: min(1600px, calc(100% - 32px));
   }
 }
 
@@ -341,11 +341,11 @@ a {
   min-height: 760px;
   background:
     linear-gradient(90deg, rgba(7, 20, 12, 0.95) 0%, rgba(7, 20, 12, 0.82) 43%, rgba(7, 20, 12, 0.2) 100%),
-    url("hero-pest-control-swfl-wide.webp") right 68% / cover no-repeat;
+    url("hero-pest-control-swfl.webp") center 58% / cover no-repeat;
 }
 
 .quote-hero .container {
-  width: min(1360px, calc(100% - 32px));
+  width: min(1600px, calc(100% - 32px));
 }
 
 .quote-hero .quote-grid {
