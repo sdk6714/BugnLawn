@@ -335,7 +335,7 @@ a {
   min-height: 760px;
   background:
     linear-gradient(90deg, rgba(7, 20, 12, 0.95) 0%, rgba(7, 20, 12, 0.82) 43%, rgba(7, 20, 12, 0.2) 100%),
-    url("hero-pest-control-swfl.webp") center 68% / cover no-repeat;
+    url("hero-pest-control-swfl.webp") center 50% / cover no-repeat;
 }
 
 .quote-hero .container {
