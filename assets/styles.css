@@ -1369,12 +1369,12 @@ select option {
 
   .dropdown-panel a {
     padding: 6px 7px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     line-height: 1.08;
   }
 
   .dropdown-panel .all-services-link {
-    font-size: 0.96rem;
+    font-size: 1.06rem;
   }
 
   .nav-dropdown:hover .dropdown-panel,
