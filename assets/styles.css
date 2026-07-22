@@ -1467,6 +1467,11 @@ select option {
     grid-template-columns: 1fr;
   }
 
+  .quote-hero .lead-form,
+  .quote-section .lead-form {
+    margin-top: -18px;
+  }
+
   .form-brand,
   .lead-form .full-row,
   .btn-submit,
