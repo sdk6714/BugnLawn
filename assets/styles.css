@@ -93,12 +93,18 @@ a {
   gap: 24px;
 }
 
+@media (min-width: 981px) {
+  .site-header .container {
+    width: min(1360px, calc(100% - 32px));
+  }
+}
+
 .brand img {
   width: clamp(170px, 22vw, 250px);
 }
 
 .brand {
-  margin-left: -10px;
+  margin-left: 0;
 }
 
 .site-nav {
@@ -335,7 +341,7 @@ a {
   min-height: 760px;
   background:
     linear-gradient(90deg, rgba(7, 20, 12, 0.95) 0%, rgba(7, 20, 12, 0.82) 43%, rgba(7, 20, 12, 0.2) 100%),
-    url("hero-pest-control-swfl.webp") center 68% / cover no-repeat;
+    url("hero-pest-control-swfl-wide.webp") right 68% / cover no-repeat;
 }
 
 .quote-hero .container {
